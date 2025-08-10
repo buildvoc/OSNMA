@@ -17,9 +17,9 @@ const OSNMALegend: React.FC = () => {
           Additionally, each ADKD type is encoded using a different colour. The ADKD type is relevant both for the tag type and the authenticated data.
         </p>
         <div className="flex flex-wrap items-center gap-4 text-sm font-medium">
-          <span className="text-blue-400">ADKD0</span>,
-          <span className="text-purple-400">ADKD4</span>, and
-          <span className="text-teal-400">ADKD12</span>.
+          <span className="text-teal-400">ADKD0</span>,
+          <span className="text-yellow-400">ADKD4</span>, and
+          <span className="text-purple-400">ADKD12</span>.
         </div>
       </div>
       <hr className="border-gray-700 my-8" />
@@ -49,17 +49,17 @@ const OSNMALegend: React.FC = () => {
           <div className="osnma_tags legend-table mb-4">
             <h5 className="text-sm text-gray-400 mb-1">Tags</h5>
             <div className="flex flex-wrap gap-2 text-sm">
-              <span className="bg-gray-700 px-2 py-1 rounded-full text-xs font-mono relative text-blue-400">
+              <span className="bg-gray-700 px-2 py-1 rounded-full text-xs font-monorelative text-teal-400">
+                PRN_D
+                <sup className="absolute top-0 right-1 text-[8px] text-red-400">FLX</sup>
+                <sub className="absolute bottom-0 right-1 text-[8px] text-gray-400">COP</sub>
+              </span>
+              <span className="bg-gray-700 px-2 py-1 rounded-full text-xs font-mono relative text-yellow-400">
                 PRN_D
                 <sup className="absolute top-0 right-1 text-[8px] text-red-400">FLX</sup>
                 <sub className="absolute bottom-0 right-1 text-[8px] text-gray-400">COP</sub>
               </span>
               <span className="bg-gray-700 px-2 py-1 rounded-full text-xs font-mono relative text-purple-400">
-                PRN_D
-                <sup className="absolute top-0 right-1 text-[8px] text-red-400">FLX</sup>
-                <sub className="absolute bottom-0 right-1 text-[8px] text-gray-400">COP</sub>
-              </span>
-              <span className="bg-gray-700 px-2 py-1 rounded-full text-xs font-monorelative text-teal-400">
                 PRN_D
                 <sup className="absolute top-0 right-1 text-[8px] text-red-400">FLX</sup>
                 <sub className="absolute bottom-0 right-1 text-[8px] text-gray-400">COP</sub>

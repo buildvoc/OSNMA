@@ -30,12 +30,13 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
   const getAdkdColor = (adkd: number | null): string => {
     switch (adkd) {
       case 0:
-      case 12:
-        return 'text-blue-400';
+        return 'text-teal-400';
       case 4:
+        return 'text-yellow-400';
+      case 12:
         return 'text-purple-400';
       default:
-        return 'text-teal-400';
+        return 'text-gray-400';
     }
   };
 
@@ -88,10 +89,11 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
           {osnmaTags && osnmaTags.length > 0 ? (
             osnmaTags.map((tag: any, index: number) => {
               const value = Array.isArray(tag) ? tag[0] : tag;
-              const hasSup = Array.isArray(tag) && tag[1] === 'F';
+              const adkd = Array.isArray(tag) ? tag[1] : null;
               const sub = Array.isArray(tag) ? tag[2] : null;
+              const hasSup = Array.isArray(tag) && tag[3] === 'FLX';
               
-              const adkdColor = getAdkdColor(typeof sub === 'number' ? sub : null);
+              const adkdColor = getAdkdColor(typeof adkd === 'number' ? adkd : null);
 
               return (
                 <span
@@ -160,10 +162,11 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
   const getAdkdStyle = (adkdKey: string): string => {
     switch (adkdKey.toLowerCase()) {
       case 'adkd0':
+        return 'text-teal-400';
       case 'adkd12':
-        return 'text-blue-400';
-      case 'adkd4':
         return 'text-purple-400';
+      case 'adkd4':
+        return 'text-yellow-400';
       default:
         return 'text-gray-400';
     }
