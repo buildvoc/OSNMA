@@ -151,11 +151,7 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
   const getActiveSatelliteNumbers = (list: any): number[] => {
     const satelliteNumbers = getSatelliteNumbers(list);
     return satelliteNumbers.filter(
-      (prn) =>
-        list[prn] && (
-          Object.values(list[prn].ADKD0 || {}).includes(true) ||
-          Object.values(list[prn].ADKD4 || {}).includes(true)
-        )
+      (svid) => OSNMA_material_received?.[svid]?.mack_data?.tags?.length > 0
     );
   };
 
@@ -180,7 +176,7 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
 
   const satelliteCount = getSatelliteNumbers(nav_data_received).length;
   const osnmaSatelliteCount = getActiveSatelliteNumbers(nav_data_received).length;
-  const activeSVIDs = getActiveSatelliteNumbers(nav_data_received);
+  const activeSVIDs = getSatelliteNumbers(nav_data_received);
 
   return (
     <section className="bg-gray-950 text-gray-200 p-8 min-h-screen font-sans">
