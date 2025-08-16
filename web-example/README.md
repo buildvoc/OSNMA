@@ -1,15 +1,4 @@
 # Running OSNMA web interface dashboard using Docker
-## Directory structures in ```web-example```
-Directory structure would be like this:
-web-example/
-├── docker-compose.yml
-├── .env
-├── nginx.conf
-├── public/
-│ ├── status_log.json
-
-----
-## Running OSNMA web interface dashboard using Docker
 1. Clone repo
 ```bash
 git clone https://github.com/buildvoc/OSNMA.git
