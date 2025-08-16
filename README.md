@@ -23,6 +23,8 @@ http://localhost
 ## Updating log data
 Public Docker volumes exists inside ```/web-example/public``` dir. Inside this dir, we have ```status_log.json```. We only need to update this file, so the web UI dashboard data will automatically renewed.
 
+Note: [This link](https://osnmalib.eu/json-schema) show the status_log.json schema.
+
 # Building as Docker images
 These steps show how to build as Docker images. The Dockerfile exists inside web directory.
 1. Clone repo:
