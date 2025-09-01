@@ -54,11 +54,7 @@ git clone https://github.com/buildvoc/OSNMA.git
 ```bash 
 git checkout docker-deployment
 ```
-3. Go to /web-input directory
-```bash 
-cd web-input
-```
-4. Build as docker images
+3. Build as docker images
 ```bash
 docker build -t subframe-input .
 ```

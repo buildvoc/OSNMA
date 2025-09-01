@@ -13,6 +13,14 @@ services:
     networks:
       - subframe-network
 
+  subframe-input:
+    image: subframe-input
+    expose:
+      - "8501"
+    restart: unless-stopped
+    networks:
+      - subframe-network
+
   nginx:
     image: nginx:latest
     ports:
@@ -22,6 +30,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - subframe-dashboard
+      - subframe-input
     restart: unless-stopped
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     networks:
