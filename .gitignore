@@ -166,3 +166,6 @@ tests/test_corner_cases/*/OSNMA_last_KROOT.txt
 
 /gnss_sdr_run/bladerf_8bit_4Msps.bin
 *_run/OSNMA_last_KROOT.txt
+
+input_logs
+logs_*

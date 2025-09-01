@@ -16,7 +16,7 @@ cd web-example
 docker-compose up -d
 ```
 5. Open localhost url
-http://localhost
+http://localhost for dashboard and http://localhost/subframe-input for dashboard input log
 
 
 ----
@@ -42,4 +42,23 @@ cd web
 4. Build as docker images
 ```bash
 docker build -t subframe-dashboard .
+```
+
+# Building as Docker images for dashboard input
+These steps show how to build as Docker images. The Dockerfile exists inside web directory.
+1. Clone repo:
+```bash
+git clone https://github.com/buildvoc/OSNMA.git
+```
+2. Checkout to deployment-branch
+```bash 
+git checkout docker-deployment
+```
+3. Go to /web-input directory
+```bash 
+cd web-input
+```
+4. Build as docker images
+```bash
+docker build -t subframe-input .
 ```

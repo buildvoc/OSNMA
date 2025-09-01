@@ -7,8 +7,8 @@ from pathlib import Path
 from osnma.input_formats.input_misc import AndroidGNSSLog
 from osnma.receiver.receiver import OSNMAReceiver
 
-output_log1 = "../web/public"
-output_log2 = "../web-example/public"
+output_log1 = "web/public"
+output_log2 = "web-example/public"
 
 def log_current_config(file_path):
     """
@@ -21,9 +21,9 @@ def log_current_config(file_path):
         # Path to the file used as input source. Not used by OSNMAlib but by the input module.
         'exec_path': '.',
         # Path to the folder where to save the generated files (logs and decoded keys)
-        'merkle_name': 'OSNMA_MerkleTree.xml',
+        'merkle_name': 'custom_run/OSNMA_MerkleTree.xml',
         # Always needs to be specified. Can be downloaded from the GSC website
-        'pubk_name': 'OSNMA_PublicKey_1.xml',
+        'pubk_name': 'custom_run/OSNMA_PublicKey_1.xml',
         # Specify for Warm Start mode. Can be downloaded from the GSC website or extracted from a Cold Start run
         'kroot_name': '',
         # Specify for Hot Start mode. You may run your file with OSNMAlib and then point to the saved kroot text file
