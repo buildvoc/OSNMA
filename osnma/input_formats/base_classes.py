@@ -35,9 +35,9 @@ class DataFormat:
 
     def __init__(self, svid: int, wn: int, tow: int, nav_bits: BitArray, band: GAL_BAND = GAL_BAND.E1B, crc: bool = True):
 
-        if len(nav_bits) != 240:
-            raise ValueError(f"The DataFormat object accepts 1 nominal page (or double page) with 240 bits."
-                             f" Current length {len(nav_bits)} bits.")
+        # if len(nav_bits) != 240:
+        #     raise ValueError(f"The DataFormat object accepts 1 nominal page (or double page) with 240 bits."
+        #                      f" Current length {len(nav_bits)} bits.")
 
         self.nav_bits = nav_bits
         "240 bits of the full page (even and odd concatenated)"
