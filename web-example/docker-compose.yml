@@ -17,6 +17,9 @@ services:
     image: subframe-input
     expose:
       - "8501"
+    volumes:
+      - ./public:/app/web-example/public
+      - ./public:/app/web/public
     restart: unless-stopped
     networks:
       - subframe-network
