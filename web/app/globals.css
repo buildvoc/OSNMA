@@ -47,27 +47,6 @@ pre {
     font-family: 'Ubuntu Mono';
 }
 
-/* Input Button */
-
-button {
-    width: 300px;
-    height: 40px;
-    padding: 10px;
-    text-align: center;
-    font-size: 16px;
-    border: none;
-    margin-left: 10px;
-    background: #d4e1eb;
-}
-
-button:active {
-    background-color: #abcde7;
-}
-
-.selected {
-    box-shadow: 0 -2px 0 #abcde7;
-}
-
 
 /* Table Status */
 

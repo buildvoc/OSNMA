@@ -30,19 +30,19 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
   const getAdkdColor = (adkd: number | null): string => {
     switch (adkd) {
       case 0:
-        return 'text-teal-400';
+        return 'text-teal-500';
       case 4:
-        return 'text-yellow-400';
+        return 'text-yellow-500';
       case 12:
-        return 'text-purple-400';
+        return 'text-purple-500';
       default:
-        return 'text-gray-400';
+        return 'text-gray-900';
     }
   };
 
   return (
-    <div className="bg-gray-800 p-4 rounded-lg shadow-md border border-gray-700">
-      <div className="text-white font-semibold text-lg mb-2">SVID {svid}</div>
+    <div className="bg-white p-4 rounded-lg shadow-md border border-gray-300">
+      <div className="text-black font-semibold text-lg mb-2">SVID {svid}</div>
 
       {/* ADKD Data */}
       <div className="mb-4">
@@ -55,7 +55,7 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
                 <span
                   key={adkdId}
                   className={`w-6 h-6 flex items-center justify-center rounded-full text-xs font-semibold ${
-                    adkdData.ADKD0[adkdId] ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-400'
+                    adkdData.ADKD0[adkdId] ? 'bg-green-500 text-black' : 'bg-gray-300 text-gray-900'
                   }`}
                 >
                   {adkdId}
@@ -70,7 +70,7 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
                 <span
                   key={adkdId}
                   className={`w-6 h-6 flex items-center justify-center rounded-full text-xs font-semibold ${
-                    adkdData.ADKD4[adkdId] ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-400'
+                    adkdData.ADKD4[adkdId] ? 'bg-green-500 text-black' : 'bg-gray-300 text-gray-900'
                   }`}
                 >
                   {adkdId}
@@ -80,7 +80,7 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
           </div>
         </div>
       </div>
-      <hr className="border-gray-700 my-2" />
+      <hr className="border-gray-300 my-2" />
 
       {/* OSNMA Tags */}
       <div className="mb-2">
@@ -98,11 +98,11 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
               return (
                 <span
                   key={index}
-                  className={`bg-gray-700 px-2 py-1 rounded-full text-xs font-mono relative ${adkdColor}`}
+                  className={`bg-gray-200 px-2 py-1 rounded-full text-xs font-mono relative ${adkdColor}`}
                 >
                   {value}
                   {hasSup && <sup className="absolute top-0 right-1 text-[8px] text-red-400">F</sup>}
-                  {sub !== null && <sub className="absolute bottom-0 right-1 text-[8px] text-gray-400">{sub}</sub>}
+                  {sub !== null && <sub className="absolute bottom-0 right-1 text-[8px] text-gray-900">{sub}</sub>}
                 </span>
               );
             })
@@ -115,7 +115,7 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
       {/* OSNMA Key */}
       <div>
         <h4 className="text-sm text-gray-400 mb-1">Key</h4>
-        <div className="bg-gray-700 px-2 py-1 rounded-md text-xs font-mono text-white overflow-hidden text-ellipsis">
+        <div className="bg-gray-300 px-2 py-1 rounded-md text-xs font-mono text-black overflow-hidden text-ellipsis">
           {osnmaKey || <span className="text-red-500 italic">Not transmitting OSNMA</span>}
         </div>
       </div>
@@ -129,7 +129,7 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
 
   if (!osnmaData) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-950 text-gray-400">
+      <div className="flex items-center justify-center min-h-screen bg-gray-50 text-gray-800">
         No OSNMA data available.
       </div>
     );
@@ -158,18 +158,18 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
   const getAdkdStyle = (adkdKey: string): string => {
     switch (adkdKey.toLowerCase()) {
       case 'adkd0':
-        return 'text-teal-400';
+        return 'text-teal-500';
       case 'adkd12':
-        return 'text-purple-400';
+        return 'text-purple-500';
       case 'adkd4':
-        return 'text-yellow-400';
+        return 'text-yellow-500';
       default:
-        return 'text-gray-400';
+        return 'text-gray-900';
     }
   };
 
   const getAdkdBgStyle = (adkdKey: string, isMissing: boolean): string => {
-    const baseStyle = isMissing ? 'bg-gray-700 opacity-60' : 'bg-gray-700';
+    const baseStyle = isMissing ? 'bg-gray-300 opacity-60' : 'bg-gray-300';
     const adkdColor = getAdkdStyle(adkdKey);
     return `${baseStyle} ${adkdColor}`;
   };
@@ -179,8 +179,8 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
   const activeSVIDs = getSatelliteNumbers(nav_data_received);
 
   return (
-    <section className="bg-gray-950 text-gray-200 p-8 min-h-screen font-sans">
-      <div className="p-6 bg-gray-900 text-gray-200 rounded-xl shadow-lg border border-gray-700">
+    <section className="bg-gradient-to-br from-gray-50 to-gray-400 text-gray-800  p-8 min-h-screen font-sans">
+      <div className="p-6 bg-gray-200 text-gray-800 rounded-xl shadow-lg border border-gray-300">
         <main className="container mx-auto">
           {/* Last Subframe Section */}
           <div className="mb-8">
@@ -193,34 +193,34 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
           {/* Status Tables Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {/* Authenticated NMA Status */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+            <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-300">
               <h4 className="text-lg font-semibold text-gray-400 mb-4">Authenticated NMA Status</h4>
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
                 <div className="font-medium text-gray-400">NMAS</div>
-                <div className="font-bold text-white">{OSNMA_status?.nma_status?.nmas || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.nma_status?.nmas || '-'}</div>
                 <div className="font-medium text-gray-400">CID</div>
-                <div className="font-bold text-white">{OSNMA_status?.nma_status?.cid || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.nma_status?.cid || '-'}</div>
                 <div className="font-medium text-gray-400">CPKS</div>
-                <div className="font-bold text-white">{OSNMA_status?.nma_status?.cpks || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.nma_status?.cpks || '-'}</div>
               </div>
             </div>
 
             {/* Tesla Chain in Force */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+            <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-300">
               <h4 className="text-lg font-semibold text-gray-400 mb-4">Tesla Chain in Force</h4>
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
                 <div className="font-medium text-gray-400">PKID</div>
-                <div className="font-bold text-white">{OSNMA_status?.tesla_chain_in_force?.pkid || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.tesla_chain_in_force?.pkid || '-'}</div>
                 <div className="font-medium text-gray-400">HF</div>
-                <div className="font-bold text-white">{OSNMA_status?.tesla_chain_in_force?.hf || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.tesla_chain_in_force?.hf || '-'}</div>
                 <div className="font-medium text-gray-400">MF</div>
-                <div className="font-bold text-white">{OSNMA_status?.tesla_chain_in_force?.mf || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.tesla_chain_in_force?.mf || '-'}</div>
                 <div className="font-medium text-gray-400">KS</div>
-                <div className="font-bold text-white">{OSNMA_status?.tesla_chain_in_force?.ks || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.tesla_chain_in_force?.ks || '-'}</div>
                 <div className="font-medium text-gray-400">TS</div>
-                <div className="font-bold text-white">{OSNMA_status?.tesla_chain_in_force?.ts || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.tesla_chain_in_force?.ts || '-'}</div>
                 <div className="font-medium text-gray-400">MACLT</div>
-                <div className="font-bold text-white">{OSNMA_status?.tesla_chain_in_force?.maclt || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.tesla_chain_in_force?.maclt || '-'}</div>
               </div>
               <div>
                 <p className="font-medium text-gray-400 mb-1">MACLT Sequence</p>
@@ -229,24 +229,24 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
             </div>
 
             {/* Public Key in Force */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+            <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-300">
               <h4 className="text-lg font-semibold text-gray-400 mb-4">Public Key in Force</h4>
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
                 <div className="font-medium text-gray-400">NPKID</div>
-                <div className="font-bold text-white">{OSNMA_status?.public_key_in_force?.npkid || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.public_key_in_force?.npkid || '-'}</div>
                 <div className="font-medium text-gray-400">NPKT</div>
-                <div className="font-bold text-white">{OSNMA_status?.public_key_in_force?.npkt || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.public_key_in_force?.npkt || '-'}</div>
                 <div className="font-medium text-gray-400">MID</div>
-                <div className="font-bold text-white">{OSNMA_status?.public_key_in_force?.mid || '-'}</div>
+                <div className="font-bold text-black">{OSNMA_status?.public_key_in_force?.mid || '-'}</div>
               </div>
             </div>
           </div>
 
-          <hr className="border-gray-700 my-8" />
+          <hr className="border-gray-300 my-8" />
 
           {/* OSNMA Tag Verification Inputs */}
           <h3 className="text-xl font-bold text-gray-500 mb-4">OSNMA Tag Verification Inputs</h3>
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 mb-8">
+          <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-300 mb-8">
             <div className="grid grid-cols-1 gap-4">
               <div className="flex flex-col items-start text-sm mb-4">
                 <div className='mb-4'>
@@ -259,7 +259,7 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
                       key={`in-view-${svid}`}
                       className={`w-8 h-8 flex items-center justify-center rounded-md font-semibold text-xs ${
                         activeSVIDs?.includes(svid)
-                          ? 'bg-green-500 text-white'
+                          ? 'bg-green-500 text-black'
                           : 'bg-gray-600 text-gray-400'
                       }`}
                     >
@@ -281,8 +281,8 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
                       key={`transmitting-${svid}`}
                       className={`w-8 h-8 flex items-center justify-center rounded-md font-semibold text-xs ${
                         OSNMA_material_received?.[svid]?.mack_data?.tags?.length > 0
-                          ? 'bg-green-500 text-white'
-                          : 'bg-red-500 text-white'
+                          ? 'bg-green-500 text-black'
+                          : 'bg-red-500 text-black'
                       }`}
                     >
                       {String(svid).padStart(2, '0')}
@@ -311,7 +311,7 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
             })}
           </div>
 
-          <hr className="border-gray-700 my-8" />
+          <hr className="border-gray-300 my-8" />
 
           {/* Authenticated Data */}
           <h3 className="text-xl font-bold text-gray-500 mb-4">Authenticated Data</h3>
@@ -321,10 +321,10 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
               return (
                 <div
                   key={`auth-data-${svid}`}
-                  className="bg-gray-800 p-4 rounded-lg shadow-md border border-gray-700"
+                  className="bg-white p-4 rounded-lg shadow-md border border-gray-300"
                 >
                   <div className="flex flex-col gap-2">
-                    <div className="font-bold text-white text-lg mb-2">SVID {svid}</div>
+                    <div className="font-bold text-black text-lg mb-2">SVID {svid}</div>
                     {satelliteAuthData && Object.keys(satelliteAuthData)?.map((adkdKey, adkdIndex) => {
                       const data = satelliteAuthData[adkdKey];
                       const isMissing = data?.iod === '-' || !data?.start_gst || data.start_gst.length === 0;
@@ -335,15 +335,15 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
                         >
                           <div className="flex justify-between items-center text-xs">
                             <span className={`font-semibold ${getAdkdStyle(adkdKey)}`}>{adkdKey.toUpperCase()}</span>
-                            <span className={`font-mono ${isMissing ? 'text-red-500' : 'text-white'}`}>{data?.iod || '-'}</span>
+                            <span className={`font-mono ${isMissing ? 'text-red-500' : 'text-black'}`}>{data?.iod || '-'}</span>
                           </div>
                           <div className="flex justify-between items-center text-xs">
-                            <span className="text-gray-400">GST:</span>
-                            <span className={`font-mono ${isMissing ? 'text-red-500' : 'text-white'}`}>{data?.start_gst?.length > 0 ? data.start_gst.join(' ') : '-'}</span>
+                            <span className="text-gray-900">GST:</span>
+                            <span className={`font-mono ${isMissing ? 'text-red-500' : 'text-black'}`}>{data?.start_gst?.length > 0 ? data.start_gst.join(' ') : '-'}</span>
                           </div>
                           <div className="flex justify-between items-center text-xs">
-                            <span className="text-gray-400">Bits:</span>
-                            <span className={`font-mono ${isMissing ? 'text-red-500' : 'text-white'}`}>{data?.acc_length > 0 ? `${data.acc_length} bits` : '-'}</span>
+                            <span className="text-gray-900">Bits:</span>
+                            <span className={`font-mono ${isMissing ? 'text-red-500' : 'text-black'}`}>{data?.acc_length > 0 ? `${data.acc_length} bits` : '-'}</span>
                           </div>
                         </div>
                       );
