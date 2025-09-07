@@ -11,15 +11,15 @@ const OSNMALegend: React.FC = () => {
       <div className="mb-8">
         <h4 className="text-xl font-semibold text-gray-400 mb-4">Colour Codes</h4>
         <p className="text-sm leading-relaxed mb-4">
-          In general, <span className="text-green-500 font-bold">green</span> means available, <span className="text-gray-500 font-bold">grey</span> inactive and <span className="text-red-500 font-bold">red</span> missing. The difference between inactive and missing is if we were expecting that item or not.
+          In general, <span className="bg-green-500 font-bold py-1 px-2 rounded-md">green</span> means available, <span className="bg-gray-500 font-bold py-1 px-2 rounded-md">grey</span> inactive and <span className="bg-red-500 font-bold py-1 px-2 rounded-md">red</span> missing. The difference between inactive and missing is if we were expecting that item or not.
         </p>
         <p className="text-sm leading-relaxed mb-4">
           Additionally, each ADKD type is encoded using a different colour. The ADKD type is relevant both for the tag type and the authenticated data.
         </p>
         <div className="flex flex-wrap items-center gap-4 text-sm font-medium">
-          <span className="text-teal-500">ADKD0</span>,
-          <span className="text-yellow-500">ADKD4</span>, and
-          <span className="text-purple-500">ADKD12</span>.
+          <span className="bg-teal-300 py-1 px-2 rounded-md">ADKD0</span>,
+          <span className="bg-yellow-600 py-1 px-2 rounded-md">ADKD4</span>, and
+          <span className="bg-fuchsia-400 py-1 px-2 rounded-md">ADKD12</span>.
         </div>
       </div>
       <hr className="border-gray-300 my-8" />
@@ -31,39 +31,40 @@ const OSNMALegend: React.FC = () => {
           A satellite card is created for each satellite seen in the last 30 seconds subframe.
         </p>
         <div className="bg-white p-4 rounded-lg shadow-md border border-gray-300 max-w-sm">
-          <div className="font-semibold text-lg mb-2 text-black">SVID</div>
-          <div className="adkd legend-table mb-4">
-            <h5 className="text-sm text-gray-400 mb-1">ADKD</h5>
-            <div className="flex flex-col gap-1 text-sm">
-              <div className="flex items-center">
-                <span className="min-w-[90px] font-medium text-gray-300">ADKD 0/12:</span>
+          <div className="text-black font-semibold text-lg text-center mt-2 mb-6">SVID</div>
+          <div className="mb-4">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center text-sm">
+                <span className="min-w-[90px] font-medium">ADKD 0/12</span>
                 <span className="text-gray-400">Word Types for this ADKD</span>
               </div>
-              <div className="flex items-center">
-                <span className="min-w-[90px] font-medium text-gray-300">ADKD 4:</span>
+              <div className="flex items-center text-sm">
+                <span className="min-w-[90px] font-medium">ADKD 4</span>
                 <span className="text-gray-400">Word Types for this ADKD</span>
               </div>
             </div>
           </div>
           <hr className="border-gray-300 my-2" />
-          <div className="osnma_tags legend-table mb-4">
-            <h5 className="text-sm text-gray-400 mb-1">Tags</h5>
-            <div className="flex flex-wrap gap-2 text-sm">
-              <span className="bg-gray-200 px-2 py-1 rounded-full text-xs font-monorelative text-teal-500">
-                PRN_D
-                <sup className="absolute top-0 right-1 text-[8px] text-red-400">FLX</sup>
-                <sub className="absolute bottom-0 right-1 text-[8px] text-gray-900">COP</sub>
-              </span>
-              <span className="bg-gray-200 px-2 py-1 rounded-full text-xs font-mono relative text-yellow-500">
-                PRN_D
-                <sup className="absolute top-0 right-1 text-[8px] text-red-400">FLX</sup>
-                <sub className="absolute bottom-0 right-1 text-[8px] text-gray-900">COP</sub>
-              </span>
-              <span className="bg-gray-200 px-2 py-1 rounded-full text-xs font-mono relative text-purple-500">
-                PRN_D
-                <sup className="absolute top-0 right-1 text-[8px] text-red-400">FLX</sup>
-                <sub className="absolute bottom-0 right-1 text-[8px] text-gray-900">COP</sub>
-              </span>
+          <div className="mb-2">
+            <h4 className="text-sm text-gray-400 mb-1">Tags</h4>
+            <div className="flex flex-wrap gap-1 text-sm">
+              <div className="flex flex-wrap gap-1 text-sm">
+                <div className={`grid grid-flow-col grid-rows-2 gap-x-2 px-2 py-0.5 font-mono rounded-sm bg-teal-300`}>
+                  <span className='row-span-2 align-middle text-md font-semibold'>PRN_D</span>
+                  <span className="col-span-2 text-[8px]">FLX</span>
+                  <span className="col-span-2 text-[8px]">COP</span>
+                </div>
+                <div className={`grid grid-flow-col grid-rows-2 gap-x-2 px-2 py-0.5 font-mono rounded-sm bg-yellow-600`}>
+                  <span className='row-span-2 align-middle text-md font-semibold'>PRN_D</span>
+                  <span className="col-span-2 text-[8px]">FLX</span>
+                  <span className="col-span-2 text-[8px]">COP</span>
+                </div>
+                <div className={`grid grid-flow-col grid-rows-2 gap-x-2 px-2 py-0.5 font-mono rounded-sm bg-fuchsia-400`}>
+                  <span className='row-span-2 align-middle text-md font-semibold'>PRN_D</span>
+                  <span className="col-span-2 text-[8px]">FLX</span>
+                  <span className="col-span-2 text-[8px]">COP</span>
+                </div>
+              </div>
             </div>
           </div>
           <div className="osnma_key">
@@ -84,49 +85,26 @@ const OSNMALegend: React.FC = () => {
           <br />
           However, note that some satellites may be not operational (e.g., SVID 14 and 18). For precise information, check the <a href="https://www.gsc-europa.eu/system-service-status/constellation-information" target="_blank" className="text-blue-400 hover:underline">gsc-europa</a> website.
         </p>
-        <div className="bg-white p-4 rounded-lg shadow-md border border-gray-300 max-w-sm">
-          <div className="flex flex-col gap-2">
-            <div className="font-bold text-black text-lg mb-2">SVID</div>
-            <div className="bg-gray-300 p-2 rounded-md">
-              <div className="flex justify-between items-center text-xs">
-                <span className="font-semibold text-gray-900">ADKD0</span>
-                <span className="font-mono text-gray-900">Nav Data IOD</span>
+        <div className="flex flex-row bg-white rounded-lg shadow-lg overflow-hidden mb-4 max-w-lg">
+          <div className="flex-none py-4 px-6 flex items-center justify-center">
+            <span className="text-xl font-bold">SVID</span>
+          </div>
+          <div className="flex-1 p-2 font-mono text-xs">
+            <div className="flex flex-col divide-y divide-white">
+              <div className="flex bg-teal-50">
+                <div className="flex-1 px-2 py-1 text-center font-semibold">Nav Data IOD</div>
+                <div className="flex-1 px-6 py-0.5 text-center">Last GST Authenticated</div>
+                <div className="flex-1 px-6 py-0.5 text-end">Accumulated Tag bits</div>
               </div>
-              <div className="flex justify-between items-center text-xs">
-                <span className="text-gray-900">GST:</span>
-                <span className="font-mono text-gray-900">Last GST Authenticated</span>
+              <div className="flex bg-yellow-50">
+                <div className="flex-1 px-2 py-1 text-center font-semibold">N/A</div>
+                <div className="flex-1 px-6 py-0.5 text-center">Last GST Authenticated</div>
+                <div className="flex-1 px-6 py-0.5 text-end">Accumulated Tag bits</div>
               </div>
-              <div className="flex justify-between items-center text-xs">
-                <span className="text-gray-900">Bits:</span>
-                <span className="font-mono text-gray-900">Accumulated Tag bits</span>
-              </div>
-            </div>
-            <div className="bg-gray-300 p-2 rounded-md">
-              <div className="flex justify-between items-center text-xs">
-                <span className="font-semibold text-gray-900">ADKD4</span>
-                <span className="font-mono text-gray-900">N/A</span>
-              </div>
-              <div className="flex justify-between items-center text-xs">
-                <span className="text-gray-900">GST:</span>
-                <span className="font-mono text-gray-900">Last GST Authenticated</span>
-              </div>
-              <div className="flex justify-between items-center text-xs">
-                <span className="text-gray-900">Bits:</span>
-                <span className="font-mono text-gray-900">Accumulated Tag bits</span>
-              </div>
-            </div>
-            <div className="bg-gray-300 p-2 rounded-md">
-              <div className="flex justify-between items-center text-xs">
-                <span className="font-semibold text-gray-900">ADKD12</span>
-                <span className="font-mono text-gray-900">Nav Data IOD</span>
-              </div>
-              <div className="flex justify-between items-center text-xs">
-                <span className="text-gray-900">GST:</span>
-                <span className="font-mono text-gray-900">Last GST Authenticated</span>
-              </div>
-              <div className="flex justify-between items-center text-xs">
-                <span className="text-gray-400">Bits:</span>
-                <span className="font-mono text-gray-900">Accumulated Tag bits</span>
+              <div className="flex bg-fuchsia-50">
+                <div className="flex-1 px-2 py-1 text-center font-semibold">Nav Data IOD</div>
+                <div className="flex-1 px-6 py-0.5 text-center">Last GST Authenticated</div>
+                <div className="flex-1 px-6 py-0.5 text-end">Accumulated Tag bits</div>
               </div>
             </div>
           </div>
