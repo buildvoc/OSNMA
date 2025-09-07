@@ -36,7 +36,7 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
       case 12:
         return 'bg-fuchsia-400';
       default:
-        return 'bg-gray-900';
+        return 'bg-red-500';
     }
   };
 
@@ -99,7 +99,7 @@ const SatelliteCard = ({ svid, adkdData, osnmaTags, osnmaKey }: {
                   key={index}
                   className={`grid grid-flow-col grid-rows-2 gap-x-2 px-2 py-0.5 font-mono rounded-sm ${adkdColor}`}
                 >
-                  <span className='row-span-2 align-middle text-md font-semibold'>{value}</span>
+                  <span className='row-span-2 align-middle text-md font-semibold'>{value || '-'}</span>
                   <span className="col-span-2 text-[8px]"> {hasSup && 'F'}</span>
                   {sub !== null && <span className="col-span-2 text-[8px]">{sub}</span>}
                 </div>
@@ -154,25 +154,6 @@ const OSNMADataView: React.FC<{ data: OSNMA[] }> = ({ data }) => {
     return satelliteNumbers.filter(
       (svid) => OSNMA_material_received?.[svid]?.mack_data?.tags?.length > 0
     );
-  };
-
-  const getAdkdStyle = (adkdKey: string): string => {
-    switch (adkdKey.toLowerCase()) {
-      case 'adkd0':
-        return 'text-teal-500';
-      case 'adkd12':
-        return 'text-purple-500';
-      case 'adkd4':
-        return 'text-yellow-500';
-      default:
-        return 'text-gray-900';
-    }
-  };
-
-  const getAdkdBgStyle = (adkdKey: string, isMissing: boolean): string => {
-    const baseStyle = isMissing ? 'bg-gray-300 opacity-60' : 'bg-gray-300';
-    const adkdColor = getAdkdStyle(adkdKey);
-    return `${baseStyle} ${adkdColor}`;
   };
 
   const satelliteCount = getSatelliteNumbers(nav_data_received).length;
