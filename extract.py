@@ -23,9 +23,9 @@ def log_current_config(file_path):
         # Path to the folder where to save the generated files (logs and decoded keys)
         'merkle_name': 'custom_run/OSNMA_MerkleTree.xml',
         # Always needs to be specified. Can be downloaded from the GSC website
-        'pubk_name': 'custom_run/OSNMA_PublicKey_1.xml',
+        'pubk_name': 'custom_run/OSNMA_PublicKey_2.xml',
         # Specify for Warm Start mode. Can be downloaded from the GSC website or extracted from a Cold Start run
-        'kroot_name': '',
+        'kroot_name': 'custom_run/OSNMA_start_KROOT.txt',
         # Specify for Hot Start mode. You may run your file with OSNMAlib and then point to the saved kroot text file
         'TL': 30,
         # Synchronization time with respect to the GST the receiver is capable of guarantee at all time
@@ -39,12 +39,12 @@ def log_current_config(file_path):
         # To fully benefit from the COP link optimization the TL value should be lower than 30s, best case with 17s
         'do_dual_frequency': False,
         # Will only be useful if the input module sends I/NAV pages from the Galileo E5b-I signal
-        'stop_at_faf': False,
+        'stop_at_faf': True,
         # Stops at First Authenticated Fix, returns the TTFAF, start GST, and last GST
     }
 
     # input_module = SBF(config_dict['scenario_path'])
-    input_module = AndroidGNSSLog(config_dict["scenario_path"])
+    input_module = AndroidGNSSLog(config_dict["scenario_path"], 'MEDIATEK')
     osnma_r = OSNMAReceiver(input_module, config_dict)
 
     osnma_r.start()
